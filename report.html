@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}تقرير{% endblock %}
+
+{% block content %}
+  <h1>تقرير الصف {{ cls }}</h1>
+  {% if report_lines %}
+    <ul>
+      {% for line in report_lines %}
+        <li>{{ line }}</li>
+      {% endfor %}
+    </ul>
+    <h2>🤖 تحليل ذكي</h2>
+    <p>{{ analysis }}</p>
+  {% else %}
+    <p>لا توجد بيانات حضور بعد.</p>
+  {% endif %}
+  <p><a href="{{ url_for('index') }}">↩️ العودة</a></p>
+{% endblock %}

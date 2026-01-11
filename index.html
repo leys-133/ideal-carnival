@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}إدارة الصفوف{% endblock %}
+
+{% block content %}
+  <h1>إدارة الصفوف</h1>
+  <p>الصفوف الحالية:</p>
+  <ul>
+    {% for cls, info in data.items() %}
+      <li>
+        <strong>{{ cls }}</strong> ({{ info.teacher }}) -
+        <a href="{{ url_for('add_student', cls=cls) }}">إضافة طالب</a>
+        <a href="{{ url_for('attendance', cls=cls) }}">تسجيل حضور</a>
+        <a href="{{ url_for('report', cls=cls) }}">تقرير</a>
+      </li>
+    {% else %}
+      <li>لا توجد صفوف بعد.</li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ url_for('add_class') }}">➕ إضافة صف جديد</a></p>
+{% endblock %}

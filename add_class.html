@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}إضافة صف{% endblock %}
+
+{% block content %}
+  <h1>إضافة صف</h1>
+  <form method="post">
+    <label>اسم الصف</label>
+    <input type="text" name="name">
+    <label>اسم المعلم</label>
+    <input type="text" name="teacher">
+    <button type="submit">إضافة</button>
+  </form>
+  <p><a href="{{ url_for('index') }}">↩️ العودة</a></p>
+{% endblock %}

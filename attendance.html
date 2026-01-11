@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}تسجيل حضور{% endblock %}
+
+{% block content %}
+  <h1>تسجيل حضور الصف {{ cls }}</h1>
+  <form method="post">
+    <table>
+      <tr><th>اسم الطالب</th><th>حاضر</th><th>ملاحظة</th></tr>
+      {% for sid, s in students.items() %}
+        <tr>
+          <td>{{ s.name }}</td>
+          <td><input type="checkbox" name="present_{{ sid }}"></td>
+          <td><input type="text" name="note_{{ sid }}"></td>
+        </tr>
+      {% endfor %}
+    </table>
+    <button type="submit">حفظ الحضور</button>
+  </form>
+  <p><a href="{{ url_for('index') }}">↩️ العودة</a></p>
+{% endblock %}
